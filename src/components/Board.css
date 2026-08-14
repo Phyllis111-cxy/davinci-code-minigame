@@ -57,16 +57,48 @@
   height: 100%;
   pointer-events: none;
   z-index: 1;
+  overflow: visible;
 }
 
-.board-line.locked {
-  stroke: #c43a3a;
-  stroke-width: 1.35;
+.board-thread {
+  animation: string-draw-group 0.6s ease-out both;
+}
+
+.board-line {
+  fill: none;
   stroke-linecap: round;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 0;
-  animation: string-draw 0.55s ease-out both;
-  filter: drop-shadow(0 0 1.5px rgba(140, 20, 20, 0.55));
+  stroke-linejoin: round;
+}
+
+/* Soft underside shadow — thread resting on cork. */
+.board-line.thread-shadow {
+  stroke: rgba(48, 8, 12, 0.55);
+  stroke-width: 2.55;
+  filter: url(#silk-soft);
+  opacity: 0.7;
+}
+
+/* Main silk body with sheen gradient. */
+.board-line.thread-core {
+  stroke: url(#silk-thread);
+  stroke-width: 1.55;
+  filter: drop-shadow(0 0.35px 0.55px rgba(90, 10, 16, 0.55));
+}
+
+/* Twisted fiber notches along the strand. */
+.board-line.thread-fiber {
+  stroke: rgba(90, 14, 22, 0.55);
+  stroke-width: 1.15;
+  stroke-dasharray: 1.35 0.85;
+  opacity: 0.85;
+}
+
+/* Specular highlight filament — silk catch-light. */
+.board-line.thread-shine {
+  stroke: rgba(255, 196, 188, 0.72);
+  stroke-width: 0.38;
+  stroke-dasharray: 1.1 1.7;
+  opacity: 0.9;
 }
 
 .board-select-ring {
@@ -312,6 +344,17 @@
   }
 }
 
+@keyframes string-draw-group {
+  from {
+    opacity: 0;
+    filter: blur(0.8px);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}
+
 @keyframes string-draw {
   from {
     stroke-dashoffset: 100;
@@ -356,7 +399,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .board-pin,
-  .board-line.locked,
+  .board-thread,
   .board-select-ring,
   .board-pin.is-hint .pin-head,
   .board-pin.has-art.is-hint .pin-art,
