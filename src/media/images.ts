@@ -1,24 +1,28 @@
 /** Runtime image paths (WebP). Keep in sync with scripts/compress-assets.mjs USED list. */
+
+const asset = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+
 export const IMG = {
-  office: '/backgrounds/office.webp',
-  wall: '/backgrounds/wall.webp',
-  wallPanorama: '/backgrounds/wall-panorama.webp',
-  phiLesson: '/backgrounds/phi-lesson.webp',
-  davinciReading: '/backgrounds/davinci-reading.webp',
-  manuscriptA1: '/backgrounds/manuscript-a-1.webp',
-  manuscriptA2: '/backgrounds/manuscript-a-2.webp',
-  manuscriptB2: '/backgrounds/manuscript-b-2.webp',
-  manuscriptC1: '/backgrounds/manuscript-c-1.webp',
-  manuscriptE2: '/backgrounds/manuscript-e-2.webp',
-  standing: '/characters/langdon-standing.webp',
-  standingTalk: '/characters/langdon-standing-talk.webp',
-  half: '/characters/langdon-half.webp',
-  sangreal: '/props/sangreal-board.webp',
-  clueA: '/clues/clue-a.webp',
-  clueB: '/clues/clue-b.webp',
-  clueC: '/clues/clue-c.webp',
-  clueD: '/clues/clue-d.webp',
-  clueE: '/clues/clue-e.webp',
+  office: asset('backgrounds/office.webp'),
+  wall: asset('backgrounds/wall.webp'),
+  wallPanorama: asset('backgrounds/wall-panorama.webp'),
+  phiLesson: asset('backgrounds/phi-lesson.webp'),
+  davinciReading: asset('backgrounds/davinci-reading.webp'),
+  manuscriptA1: asset('backgrounds/manuscript-a-1.webp'),
+  manuscriptA2: asset('backgrounds/manuscript-a-2.webp'),
+  manuscriptB2: asset('backgrounds/manuscript-b-2.webp'),
+  manuscriptC1: asset('backgrounds/manuscript-c-1.webp'),
+  manuscriptE2: asset('backgrounds/manuscript-e-2.webp'),
+  standing: asset('characters/langdon-standing.webp'),
+  standingTalk: asset('characters/langdon-standing-talk.webp'),
+  half: asset('characters/langdon-half.webp'),
+  sangreal: asset('props/sangreal-board.webp'),
+  clueA: asset('clues/clue-a.webp'),
+  clueB: asset('clues/clue-b.webp'),
+  clueC: asset('clues/clue-c.webp'),
+  clueD: asset('clues/clue-d.webp'),
+  clueE: asset('clues/clue-e.webp'),
 } as const
 
 /** First paint: office + standing portrait. */
