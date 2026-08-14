@@ -1,0 +1,366 @@
+.board {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: calc(var(--radius) + 2px);
+  background: #3a2e22;
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 50px rgba(0, 0, 0, 0.35),
+    0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.board.is-fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.board-texture {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 220, 160, 0.07), transparent 28%),
+    radial-gradient(circle at 78% 68%, rgba(0, 0, 0, 0.18), transparent 32%),
+    repeating-linear-gradient(
+      92deg,
+      rgba(255, 255, 255, 0.025) 0 1px,
+      transparent 1px 6px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.04) 0 2px,
+      transparent 2px 9px
+    ),
+    linear-gradient(145deg, #6a5340 0%, #3d3224 42%, #2a2118 100%);
+  pointer-events: none;
+}
+
+.board-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.35) 100%);
+  pointer-events: none;
+}
+
+.board-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.board-line.locked {
+  stroke: #c43a3a;
+  stroke-width: 1.35;
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  animation: string-draw 0.55s ease-out both;
+  filter: drop-shadow(0 0 1.5px rgba(140, 20, 20, 0.55));
+}
+
+.board-select-ring {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 0.7;
+  opacity: 0.9;
+  animation: select-pulse 1.4s ease-in-out infinite;
+}
+
+.board-select-core {
+  fill: rgba(196, 163, 90, 0.55);
+}
+
+.board-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  width: 46%;
+  max-width: 150px;
+  z-index: 2;
+  animation: pin-drop 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.15) both;
+  touch-action: manipulation;
+}
+
+.board-pin.has-art {
+  width: min(20%, 84px);
+  max-width: 84px;
+}
+
+.pin-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.35));
+  transform: rotate(-2deg);
+}
+
+.board-pin[data-clue='A'].has-art .pin-art {
+  transform: rotate(-2deg);
+}
+
+.board-pin[data-clue='B'].has-art .pin-art {
+  transform: rotate(2deg);
+}
+
+.board-pin[data-clue='C'].has-art .pin-art {
+  transform: rotate(-1deg);
+}
+
+.board-pin[data-clue='D'].has-art .pin-art {
+  transform: rotate(1.5deg);
+}
+
+.board-pin[data-clue='E'].has-art .pin-art {
+  transform: rotate(-2.5deg);
+}
+
+.board-pin.has-art.is-selected .pin-art {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  filter:
+    drop-shadow(0 10px 16px rgba(0, 0, 0, 0.35))
+    drop-shadow(0 0 10px rgba(196, 163, 90, 0.45));
+}
+
+.board-pin.has-art.is-preview .pin-art {
+  opacity: 0.88;
+  filter:
+    drop-shadow(0 10px 16px rgba(0, 0, 0, 0.35))
+    drop-shadow(0 0 0 2px rgba(196, 163, 90, 0.55));
+}
+
+.board-pin.has-art.is-hint .pin-art {
+  animation: hint-glow-art 1s ease-in-out infinite;
+}
+
+@keyframes hint-glow-art {
+  0%,
+  100% {
+    filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.35));
+  }
+  50% {
+    filter:
+      drop-shadow(0 10px 16px rgba(0, 0, 0, 0.35))
+      drop-shadow(0 0 12px rgba(196, 163, 90, 0.55));
+  }
+}
+
+.board-pin[data-clue='A'] {
+  animation-delay: 0.02s;
+}
+.board-pin[data-clue='B'] {
+  animation-delay: 0.08s;
+}
+.board-pin[data-clue='C'] {
+  animation-delay: 0.14s;
+}
+.board-pin[data-clue='D'] {
+  animation-delay: 0.2s;
+}
+.board-pin[data-clue='E'] {
+  animation-delay: 0.1s;
+}
+
+.pin-head {
+  display: block;
+  width: 13px;
+  height: 13px;
+  margin: 0 auto 0.2rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, #f0a0a0, #b02424 55%, #5a1010);
+  box-shadow:
+    0 2px 3px rgba(0, 0, 0, 0.45),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+.pin-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto;
+  column-gap: 0.35rem;
+  row-gap: 0.1rem;
+  padding: 0.5rem 0.55rem 0.5rem 0.45rem;
+  border-radius: 3px;
+  background:
+    linear-gradient(180deg, #f7ecd0 0%, #efe0b8 100%);
+  color: #2a2118;
+  text-align: left;
+  box-shadow:
+    1px 2px 0 rgba(0, 0, 0, 0.22),
+    0 6px 14px rgba(0, 0, 0, 0.18);
+  transform: rotate(-1.8deg);
+  border: 1px solid rgba(120, 90, 40, 0.22);
+}
+
+.board-pin[data-clue='B'] .pin-card {
+  transform: rotate(1.6deg);
+}
+.board-pin[data-clue='C'] .pin-card {
+  transform: rotate(-0.6deg);
+}
+.board-pin[data-clue='D'] .pin-card {
+  transform: rotate(2.1deg);
+}
+.board-pin[data-clue='E'] .pin-card {
+  transform: rotate(-2.4deg);
+  background: linear-gradient(180deg, #f0e6cf, #e2d3b0);
+}
+
+.pin-glyph {
+  grid-row: 1 / span 3;
+  align-self: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  display: grid;
+  place-items: center;
+  border-radius: 3px;
+  background: rgba(139, 30, 30, 0.08);
+  font-size: 0.85rem;
+  font-family: var(--font-display);
+  color: #6b1a1a;
+}
+
+.pin-card strong {
+  font-size: 0.68rem;
+  color: var(--crimson);
+  letter-spacing: 0.04em;
+}
+
+.pin-card em {
+  grid-column: 2;
+  font-style: normal;
+  font-size: 0.64rem;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pin-word {
+  grid-column: 2;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: #6b1a1a;
+  animation: word-ink 0.5s ease both;
+}
+
+.pin-decoy {
+  grid-column: 2;
+  color: #8a7350;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+}
+
+.board-pin.is-selected .pin-card {
+  outline: 2px solid var(--gold);
+  box-shadow:
+    0 0 0 3px rgba(196, 163, 90, 0.2),
+    1px 2px 0 rgba(0, 0, 0, 0.22);
+}
+
+.board-pin.is-hint .pin-head {
+  animation: hint-glow 1s ease-in-out infinite;
+}
+
+.board-pin.is-assembled .pin-card {
+  background: linear-gradient(180deg, #fbf1d4, #f0dfb0);
+}
+
+.board-pin.is-decoy .pin-glyph {
+  background: rgba(0, 0, 0, 0.06);
+  color: #7a6550;
+}
+
+.board-pin.is-preview {
+  opacity: 0.72;
+}
+
+.board-pin.is-preview .pin-card {
+  outline: 2px dashed var(--gold);
+}
+
+.board-pin:active .pin-card {
+  transform: rotate(0deg) scale(0.98);
+}
+
+@keyframes pin-drop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -70%) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes string-draw {
+  from {
+    stroke-dashoffset: 100;
+    opacity: 0.2;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes select-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes hint-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(196, 163, 90, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(196, 163, 90, 0.45);
+  }
+}
+
+@keyframes word-ink {
+  from {
+    opacity: 0;
+    letter-spacing: 0.2em;
+  }
+  to {
+    opacity: 1;
+    letter-spacing: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .board-pin,
+  .board-line.locked,
+  .board-select-ring,
+  .board-pin.is-hint .pin-head,
+  .board-pin.has-art.is-hint .pin-art,
+  .pin-word {
+    animation: none !important;
+  }
+}

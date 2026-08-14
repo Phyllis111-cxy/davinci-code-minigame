@@ -1,0 +1,550 @@
+{
+  "meta": {
+    "episodeId": "langdon-01",
+    "title": "符号线索 · 兰登篇",
+    "durationMinutes": [
+      3,
+      5
+    ],
+    "lead": "robert-langdon",
+    "tone": "scholarly-with-soft-hints",
+    "locale": "zh-CN",
+    "notes": "办公室练习：桌上这组符号材料；拼出前不剧透圣杯；删choiceC；拼字后Sangreal详解再连线"
+  },
+  "flow": [
+    "title",
+    "intro",
+    "choice",
+    "discover",
+    "assembleWord",
+    "postAssemble",
+    "linking",
+    "ending"
+  ],
+  "titleScreen": {
+    "kicker": "《达芬奇密码》互动练习",
+    "headline": "符号线索 · 兰登篇",
+    "setting": "哈佛 · 兰登的办公室",
+    "blurb": "你被请上楼。桌上几件符号材料似乎在互相指认——先读懂记号，再拼回被拆开的名字。",
+    "duration": "约 3–5 分钟",
+    "cta": "进入办公室"
+  },
+  "opening": {
+    "beats": [
+      {
+        "id": "talk0",
+        "type": "talk",
+        "lines": [
+          {
+            "id": "t0a",
+            "speaker": "langdon",
+            "text": "请进。门轻轻带一下就好。——对，就是你。别站门口，里面坐。"
+          },
+          {
+            "id": "t0b",
+            "speaker": "langdon",
+            "text": "今天课上那个问题，多数同学在复述定义。你却换了一个角度，把符号当作「会说话的东西」来理解，而不是当作要背下来的词条。这种回答，在大一新生里很少见。所以我请你上来聊聊。"
+          },
+          {
+            "id": "t0c",
+            "speaker": "langdon",
+            "text": "我是罗伯特·兰登，符号学教授。说得再直白一点：我研究图像、纹样、数字和仪式物件如何传递含义——它们往往比人们口头宣称的更诚实。"
+          },
+          {
+            "id": "t0d",
+            "speaker": "langdon",
+            "text": "你很聪明，我想请你来读读一组符号材料-是我在上一次案件中收集的。我想听听你的想法。"
+          },
+          {
+            "id": "t0e",
+            "speaker": "langdon",
+            "text": "先给你一点背景，你知道黄金分割吗？那个比例大约等于一点六一八，也就是 PHI。它会出现在鹦鹉螺的螺旋里，会出现在古典神庙的立面比例里，甚至会出现在人体骨骼的分段关系中。这并不是什么神秘力量——只是人类创作时，特别偏爱某种「看起来恰到好处」的结构。"
+          },
+          {
+            "id": "t0f",
+            "speaker": "langdon",
+            "text": "达·芬奇对这种结构几乎着了迷。他画画时，常常像在画面里另写一行注释：手怎么放、人物站在哪里、谁被推到边缘——这些细节，有时比画边的题跋更老实。他的宗教题材作品表面端正，可你若盯得够久，会发现构图里常有第二种读法。密码，其实就藏在这种「第二套读法」里。"
+          },
+          {
+            "id": "t0g",
+            "speaker": "langdon",
+            "text": "好。我们开始吧，别担心，我会在旁边指引你。"
+          }
+        ]
+      },
+      {
+        "id": "talkA-setup",
+        "type": "talk",
+        "lines": [
+          {
+            "id": "ta1",
+            "speaker": "langdon",
+            "text": "第一件。请看这张摹本残页。不是博物馆原件，是课堂用的构图练习稿。我整理这组符号材料时，最早学到的一课就是：看画，不要只看脸。"
+          },
+          {
+            "id": "ta2",
+            "speaker": "langdon",
+            "text": "宗教画里，脸最会抢戏。悲伤、虔敬、泪光——观众很容易被表情带走。可画家如果想藏一点不肯直说的东西，他往往不会写在脸上，而会写在手上。"
+          }
+        ]
+      },
+      {
+        "id": "choiceA",
+        "type": "choice",
+        "clueId": "A",
+        "question": "面对这页残稿，你发现哪里不对劲？",
+        "choices": [
+          {
+            "id": "a-face",
+            "text": "表情不对，太悲伤了",
+            "correct": false,
+            "wrongLine": "脸最会抢戏。悲伤很常见，未必是破绽。再看看别处。"
+          },
+          {
+            "id": "a-hand",
+            "text": "手势不对，不像在祈福",
+            "correct": true
+          },
+          {
+            "id": "a-building",
+            "text": "背景建筑比例不对",
+            "correct": false,
+            "wrongLine": "建筑以后会用到。这页上真正不对劲的，是手。"
+          }
+        ]
+      },
+      {
+        "id": "talkA-insight",
+        "type": "talk",
+        "lines": [
+          {
+            "id": "ta3",
+            "speaker": "langdon",
+            "text": "很好。破绽在手上。它不太像标准的祈福姿势，更像在护着什么，又像把观者的视线悄悄导向某处——「被守护之物」。画家不愿把结论写清楚时，最爱用的就是这种手势语言。在这组材料里，这类「用手说话」的细节，后来一再出现。"
+          },
+          {
+            "id": "ta4",
+            "speaker": "langdon",
+            "text": "请把它钉上墙。我们就从这里建立一个小小的探案墙：这只手，首先表达的是「守护」或「指引」。"
+          }
+        ]
+      },
+      {
+        "id": "pinA",
+        "type": "pin",
+        "clueId": "A",
+        "line": "画作手记。重点句：手势 = 守护 / 指引（指向被守护之物）。",
+        "button": "钉上「画作手记」"
+      },
+      {
+        "id": "talkB-setup",
+        "type": "talk",
+        "lines": [
+          {
+            "id": "tb1",
+            "speaker": "langdon",
+            "text": "但是，「守护」这个意思还缺一半。如果某件事真正需要被保护，传统上往往会配一个记号，提醒知情者：此事不宜张扬。我在这组材料里，反复碰到同一枚印章——玫瑰。"
+          },
+          {
+            "id": "tb2",
+            "speaker": "langdon",
+            "text": "这是一枚纹章拓片。别把它当作装饰花。我们先确认它更古老的一层含义。"
+          }
+        ]
+      },
+      {
+        "id": "choiceB",
+        "type": "choice",
+        "clueId": "B",
+        "question": "在比较古老的象征系统里，玫瑰最常先表示什么？",
+        "choices": [
+          {
+            "id": "b-love",
+            "text": "爱情与浪漫",
+            "correct": false,
+            "wrongLine": "在现代语境里确实如此。可我们读的是更早一层用法——宗教传统里，用玫瑰时通常不是在谈情书。"
+          },
+          {
+            "id": "b-secret",
+            "text": "机密：不宜外传",
+            "correct": true
+          },
+          {
+            "id": "b-war",
+            "text": "战争与胜利",
+            "correct": false,
+            "wrongLine": "胜利更常由月桂、鹰或刀剑来承担。玫瑰很少扮演那个角色。"
+          }
+        ]
+      },
+      {
+        "id": "talkB-insight",
+        "type": "talk",
+        "lines": [
+          {
+            "id": "tb3",
+            "speaker": "langdon",
+            "text": "正是机密。拉丁语里有一种说法：sub rosa，字面意思是「在玫瑰之下」。它指的是：这话只在私下说，出去不宜声张。中世纪的议事厅甚至会在天花板上画玫瑰，提醒与会者——此刻所说，止于此室。"
+          },
+          {
+            "id": "tb4",
+            "speaker": "langdon",
+            "text": "所以，当玫瑰出现在这类隐秘线索旁边时，它通常不是终点，而像一枚盖章：告诉你，有重要的事物正被秘密地守护着。"
+          },
+          {
+            "id": "tb5",
+            "speaker": "langdon",
+            "text": "现在墙上有两个线索：手势代表着「守护」，玫瑰代表着「机密」。"
+          }
+        ]
+      },
+      {
+        "id": "pinB",
+        "type": "pin",
+        "clueId": "B",
+        "line": "玫瑰纹章。重点句：玫瑰 = sub rosa = 机密守护的印章（不是答案本身）。",
+        "button": "钉上「玫瑰纹章」"
+      },
+      {
+        "id": "talk-bridge",
+        "type": "talk",
+        "lines": [
+          {
+            "id": "tbr1",
+            "speaker": "langdon",
+            "text": "我教学生时，常让他们先想一想：墙上的符号，是不是在说同一句话。因为密码很少活在单独一个记号里；它活在对应关系里。"
+          },
+          {
+            "id": "tbr2",
+            "speaker": "langdon",
+            "text": "手势说「守护」。玫瑰说「秘密地守护」。若它们彼此印证，「秘密守护」这套语言就算成立——这是我们稍后要确认的第一组对应。可「守护」还缺宾语：究竟守护的是什么？"
+          },
+          {
+            "id": "tbr3",
+            "speaker": "langdon",
+            "text": "名字稍后揭晓。在那之前，我先给你看一张图。"
+          }
+        ]
+      },
+      {
+        "id": "talkE-setup",
+        "type": "talk",
+        "lines": [
+          {
+            "id": "te1",
+            "speaker": "langdon",
+            "text": "下一张，就来自桌上这组材料——一张圣堂平面。很多人一听「神圣」「圣殿」，就会先想到这里。我想听听你的第一反应。"
+          }
+        ]
+      },
+      {
+        "id": "choiceE",
+        "type": "choice",
+        "clueId": "E",
+        "question": "桌上这组材料里有这样一张图——圣堂平面。你第一眼看见它，最先会想到什么？",
+        "choices": [
+          {
+            "id": "e-end",
+            "text": "那件被守护之物就藏在这座建筑里",
+            "correct": false,
+            "wrongLine": "很自然。宏伟、庄严，像把方向写在脸上——也正因为这样，才要再想一步。"
+          },
+          {
+            "id": "e-control",
+            "text": "神圣的地方，但不一定是秘密的藏身之处",
+            "correct": true
+          },
+          {
+            "id": "e-trash",
+            "text": "没什么特别，只是一张建筑图",
+            "correct": false,
+            "wrongLine": "别小看它。留在墙上，等会儿好对比。"
+          }
+        ]
+      },
+      {
+        "id": "talkE-insight",
+        "type": "talk",
+        "lines": [
+          {
+            "id": "te2",
+            "speaker": "langdon",
+            "text": "很好。第一反应往往最简单，也最危险。公开的圣殿很有说服力，可庄严不等于答案。"
+          }
+        ]
+      },
+      {
+        "id": "pinE",
+        "type": "pin",
+        "clueId": "E",
+        "line": "指向 · 圣堂。重点句：神圣的地方，但不一定是终点；第一眼最诱人，往往要最后才信。",
+        "button": "钉上「指向 · 圣堂」"
+      },
+      {
+        "id": "talkC-setup",
+        "type": "talk",
+        "lines": [
+          {
+            "id": "tc1",
+            "speaker": "langdon",
+            "text": "「秘密守护」的语言有了，还缺名字：究竟守护的是什么。在这组符号材料里，名字有时会被拆开、打散，像故意不让人一口气读完。桌上这张残破字笺，就是那种「被拆开的标签」。"
+          },
+          {
+            "id": "tc2",
+            "speaker": "langdon",
+            "text": "正确做法很简单：先把偏旁部首归位，拼出关键词，再分析它指向哪里。名字不清晰，后面再漂亮的推测都站不住。"
+          },
+          {
+            "id": "tc3",
+            "speaker": "langdon",
+            "text": "来——请钉上字笺，然后动手拼。无关的部首先放一边。"
+          }
+        ]
+      },
+      {
+        "id": "pinC",
+        "type": "pin",
+        "clueId": "C",
+        "line": "残破字笺。先拼回名字，再解释它。",
+        "button": "钉上「残破字笺」并开始拼字",
+        "after": "assembleWord"
+      }
+    ]
+  },
+  "dialogue": {
+    "intro": [],
+    "hints": {
+      "afterInspectA": "手势开口了。很好。墙上词典的第一页已经立住：守护 / 指引。",
+      "afterInspectB": "看见了吗？sub rosa——在玫瑰之下。它在盖章：有东西被秘密守护，却还没说出名字。",
+      "afterInspectC": "字被拆开了——先别急着连线。名字都拼不回来，后面的推理就会飘。",
+      "afterInspectE": "圣堂平面很唬人，对吧？第一眼很自然会往「杯在教堂里」想。先记着它，别急着把它当终点。",
+      "afterAssemble": "很好。「圣杯」——中文关键词归位了。先别急着往下连线。名字刚回来的时候，最容易犯的错，就是以为自己已经懂了。",
+      "needAssembleFirst": "残字还没拼完。名字不清，连线就只是猜测——先回到字笺。",
+      "linkPickFirst": "请点选两枚图钉相连。红线不是装饰，而是你提出的一条证明。我们按顺序来。",
+      "missingLink": "还差一环。请先回到最基础的问题：手势与玫瑰，是否同属「秘密守护」这套语言？可以再读一眼便签上的重点句。",
+      "afterWrongLink2": "欲速则不达。我们是在确认「守护关系」，还是已经迫不及待去碰终点了？在这组符号里，跳步的人通常会掉进圣堂那个坑。",
+      "literalChurch": "偏字面了。宏伟的圣堂很诱人，观光手册也偏爱它。可对 Sangreal 这种词，最像答案的图像，往往要最先被怀疑。请再对照墙上关于「圣杯」的那条转义读法。",
+      "endingSuccess": "很好。排除字面，留下传承——这面小小的圣杯线索图，算是完成了。今天办公室里只走了一小段。",
+      "endingSuccessOffice": "若你喜欢这种感觉——符号会互相指认，词语会说谎，也会指路——那么整条圣杯线在更大风暴里如何展开，故事我写在《达芬奇密码》里了，你要是还感兴趣，看这本书会完整得多。你今天表现得很好，大一就能走到这一步，确实少见。",
+      "radicalWrong": "这个部件对不上。笔划也讲「对应」，放错位置，字就不会开口。"
+    },
+    "afterAssembleLines": [
+      {
+        "id": "pa1",
+        "speaker": "langdon",
+        "text": "很好。「圣杯」——中文关键词归位了。先别急着往下连线。名字刚回来的时候，最容易犯的错，就是以为自己已经懂了。"
+      },
+      {
+        "id": "pa2",
+        "speaker": "langdon",
+        "text": "我这次碰到的线索是英文词：Sangreal。符号学里，有些词之所以危险，不是因为难认，而是因为它们允许不止一种切法。"
+      },
+      {
+        "id": "pa3",
+        "speaker": "langdon",
+        "text": "第一种切法，也是最常见、最「正经」的一种：San + Greal。San 偏向「圣」；Greal 这一脉与杯、盘、圣器相关。合起来，就是多数人脑子里立刻浮现的画面——神圣的杯子，殿堂里的圣物。若停在这里，下一张圣堂平面就会显得无比正确。"
+      },
+      {
+        "id": "pa4",
+        "speaker": "langdon",
+        "text": "可同一种拼写，还能换刀再切一次：Sang + Real。Sang，在相关的罗曼语系里，意思是「血」。Real，则可偏向「王室的」「王家的」。于是同一个 Sangreal，听起来就不再只是「圣的杯」，而像在低语——王家之血，一条需要被守护的血脉。"
+      },
+      {
+        "id": "pa5",
+        "speaker": "langdon",
+        "text": "文字自己提供了岔路：切成圣杯，你就会去找建筑、找器皿、找教堂；切成血脉，你就会去问——谁在保密？秘密究竟是什么？密码常常就藏在这种地方。"
+      },
+      {
+        "id": "pa6",
+        "speaker": "langdon",
+        "text": "中文「杯」其实也是一样的：杯是容器。容器真正重要的，从来不是釉色，而是它盛着什么。若 Sangreal 允许被理解为「血」，那么在这组符号里，圣杯的作用就清楚了：它更可能指向血脉与传承，而不是某座圣堂的门牌。"
+      },
+      {
+        "id": "pa7",
+        "speaker": "langdon",
+        "text": "所以接下来你来连这几条线索，证明三步：第一，手势与玫瑰同属「秘密守护」；第二，被守护的对象，名字就叫圣杯——Sangreal；第三，我们采纳第二种切法，指向血脉，而把圣堂留作字面诱饵。来吧。用你已经看见的东西，把它证出来。"
+      }
+    ]
+  },
+  "ui": {
+    "introSceneHint": "办公室谈话",
+    "introContinue": "继续",
+    "introToChoice": "开始观察",
+    "introPinFirst": "查看线索",
+    "choiceSceneHint": "三选一 · 点错可再选",
+    "discoverTip": "把线索钉上墙后，可点开复看。拼字在残破字笺钉上之后进行。",
+    "linkingTip": "点两枚图钉拉红线：先证守护（画作↔玫瑰），再证对象（玫瑰↔圣杯），最后排除字面（圣杯↔血脉）。",
+    "linkingProgress": "已锁定 {done}/3 · 推演失误 {wrong}",
+    "assembleTitle": "残破字笺 · 用偏旁拼回关键词",
+    "assembleDeco": "角落外文稍后解释",
+    "assembleSubmit": "确认拼合，钉上墙",
+    "playAgain": "再玩一次",
+    "purchasePending": "链接即将开放",
+    "postAssembleSceneHint": "Sangreal · 切词",
+    "postAssembleContinue": "继续",
+    "postAssembleToLink": "开始连线证明"
+  },
+  "clues": [
+    {
+      "id": "A",
+      "name": "画作手记 · 手势",
+      "type": "painting-note",
+      "unlock": "intro",
+      "highlight": "重点：手势 = 守护 / 指引（指向被守护之物）。",
+      "langdonComment": "破绽在手上。它不太像标准祈福，更像护着什么，或把视线引向「被守护之物」。画家不愿直说时，最爱使这招。"
+    },
+    {
+      "id": "B",
+      "name": "玫瑰纹章",
+      "type": "emblem",
+      "unlock": "discover",
+      "highlight": "重点：玫瑰 = sub rosa = 机密守护的印章（不是答案本身）。",
+      "decorativeForeignText": "sub rosa",
+      "langdonComment": "sub rosa——「在玫瑰之下」，意思是此事不宜外传。玫瑰在这里像一枚章：有东西正被秘密守护，它本身不是终点。"
+    },
+    {
+      "id": "C",
+      "name": "残破字笺",
+      "type": "radical-sticky",
+      "unlock": "discover",
+      "targetWord": "圣杯",
+      "decorativeForeignText": "Sangreal",
+      "assemble": {
+        "slots": 4,
+        "parts": [
+          "又",
+          "土",
+          "木",
+          "不"
+        ],
+        "decoyParts": [
+          "忄",
+          "礻"
+        ],
+        "note": "偏旁部首：圣=又(上)+土(下)；杯=木(左)+不(右)",
+        "groups": [
+          {
+            "label": "字一",
+            "structure": "上下",
+            "parts": [
+              "又",
+              "土"
+            ],
+            "result": "圣"
+          },
+          {
+            "label": "字二",
+            "structure": "左右",
+            "parts": [
+              "木",
+              "不"
+            ],
+            "result": "杯"
+          }
+        ]
+      },
+      "langdonComment": "先把偏旁部首归位，再解释整词。"
+    },
+    {
+      "id": "D",
+      "name": "指向 · 血脉",
+      "type": "endpoint-correct",
+      "unlock": "after-link-BC",
+      "revealText": "若「杯」是隐喻的容器，它所盛的，更接近一条被守护的血脉与传承。",
+      "langdonComment": "若杯是隐喻的容器，它所盛装的更接近被守护的血脉与传承。圣堂仍钉在墙上冲你眨眼——说服力，有时正是诱饵的工作方式。"
+    },
+    {
+      "id": "E",
+      "name": "指向 · 圣堂",
+      "type": "endpoint-decoy",
+      "unlock": "early-or-with-D-back",
+      "surfaceText": "宏伟的圣堂平面图——第一眼很像「杯就在这儿」。也正因为像，才要小心。",
+      "langdonComment": "神圣的地方，但不一定是终点。第一眼最诱人，往往要最后才信。",
+      "langdonCommentOnWrongLink": "偏字面了。"
+    }
+  ],
+  "board": {
+    "layout": "fixed",
+    "freeDragDuringPuzzle": false,
+    "linkInput": "tap-tap",
+    "correctLinksInOrder": [
+      {
+        "from": "A",
+        "to": "B",
+        "proof": "手势的守护姿态 ↔ 玫瑰的机密印章",
+        "successLine": "很好。二者互相印证：不是两件彼此无关的事物，而是同一句话——有重要之物，正被谨慎、秘密地守护着。对象的名字，你已经拼出来了。下一步，让「守护的印章」认领它的宾语。"
+      },
+      {
+        "from": "B",
+        "to": "C",
+        "proof": "守护记号所护之物 ↔ 圣杯",
+        "requires": [
+          "C-assembled",
+          "link-AB"
+        ],
+        "successLine": [
+          "正是如此。玫瑰这枚「机密」的章，盖在「圣杯」这个名称上。",
+          "现在问最后一问：在这里，圣杯更接近字面的杯子与殿堂，还是另一种读法——容器所盛之血脉与传承？"
+        ]
+      },
+      {
+        "from": "C",
+        "to": "D",
+        "proof": "圣杯作为隐喻容器 ↔ 血脉/传承",
+        "requires": [
+          "link-BC"
+        ],
+        "successLine": "正是这样。我们放下过于字面的终点，留下血脉与传承。三步证明完成：守护语言成立，对象名为圣杯，圣杯在此读作血脉。你刚刚完成的，是一次微型的「符号破案」。"
+      }
+    ],
+    "alwaysWrongExamples": [
+      {
+        "from": "C",
+        "to": "E",
+        "reason": "literal-church"
+      },
+      {
+        "from": "A",
+        "to": "E",
+        "reason": "literal-church"
+      },
+      {
+        "from": "B",
+        "to": "E",
+        "reason": "literal-church"
+      }
+    ],
+    "gates": {
+      "linksInvolvingCRequireAssemble": true,
+      "strictOrder": true
+    }
+  },
+  "ending": {
+    "ctaOrder": [
+      "tease-sophie",
+      "purchase",
+      "play-again"
+    ],
+    "sophieTeaser": {
+      "title": "下一集 · 索菲·奈芙",
+      "blurb": "书中的密码破译员即将登场——现场会自己开口。想知道她是谁，故事在书页里更完整。",
+      "route": "/sophie",
+      "available": false
+    },
+    "purchase": {
+      "label": "翻开《达芬奇密码》",
+      "url": "TBD"
+    }
+  },
+  "tech": {
+    "stackSuggestion": "vite-react",
+    "modules": [
+      "dialogue",
+      "clues",
+      "radicalPuzzle",
+      "board",
+      "ending"
+    ],
+    "orientation": "portrait-primary"
+  }
+}

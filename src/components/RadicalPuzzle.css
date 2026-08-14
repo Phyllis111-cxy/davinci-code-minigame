@@ -1,0 +1,133 @@
+.radical-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.9rem;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(60, 45, 28, 0.55), rgba(20, 14, 10, 0.65));
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255, 220, 160, 0.06);
+}
+
+.radical-title {
+  margin: 0;
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+}
+
+.radical-deco,
+.radical-hint {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.radical-deco {
+  letter-spacing: 0.08em;
+}
+
+.radical-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.radical-group {
+  padding: 0.55rem;
+  border-radius: 10px;
+  border: 1px solid rgba(196, 163, 90, 0.28);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.radical-group-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.radical-result {
+  min-width: 1.6rem;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: rgba(243, 234, 215, 0.35);
+}
+
+.radical-result.is-ready {
+  color: var(--gold);
+}
+
+.radical-slots {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.radical-slots.is-row {
+  grid-template-columns: 1fr 1fr;
+}
+
+.radical-slots.is-stack {
+  grid-template-columns: 1fr;
+  max-width: 4.2rem;
+  margin: 0 auto;
+}
+
+.radical-slot {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #f7ecd0, #e8d7a8);
+  color: #2a2118;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  border: 1px dashed #a89060;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.35);
+}
+
+.radical-slot:not(:empty) {
+  border-style: solid;
+}
+
+.radical-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.radical-part {
+  min-width: 3rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #5a4632, #3a2e22);
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.radical-part:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.radical-part:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.radical-part:disabled {
+  opacity: 0.3;
+}
+
+@media (max-width: 360px) {
+  .radical-groups {
+    grid-template-columns: 1fr;
+  }
+}

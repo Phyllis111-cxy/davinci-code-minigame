@@ -1,0 +1,156 @@
+:root {
+  color-scheme: dark;
+  --bg-deep: #1a1510;
+  --bg-panel: #2c2416;
+  --cork: #3d3224;
+  --ink: #f3ead7;
+  --muted: #b9a88a;
+  --gold: #c4a35a;
+  --crimson: #8b1e1e;
+  --crimson-bright: #c43a3a;
+  --line: rgba(196, 163, 90, 0.35);
+  --radius: 14px;
+  --font-display: "Songti SC", "Noto Serif SC", "STSong", serif;
+  --font-body: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  color: var(--ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--bg-deep);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.primary-btn {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.85rem 1.25rem;
+  background: linear-gradient(180deg, #b43030, var(--crimson));
+  color: #fff8ee;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 6px 16px rgba(100, 20, 20, 0.35);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.primary-btn:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+.primary-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.primary-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Parchment + wax-seal confirm button (discover pin). */
+.seal-btn {
+  appearance: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.85rem 1rem 0.85rem 0.85rem;
+  border: 1px solid rgba(150, 118, 60, 0.55);
+  border-radius: 4px;
+  background:
+    linear-gradient(180deg, #f4e6c8 0%, #e8d4a8 48%, #dcc496 100%);
+  color: #2a2118;
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transition: transform 0.12s ease, filter 0.15s ease;
+}
+
+.seal-btn:hover {
+  filter: brightness(1.04);
+}
+
+.seal-btn:active {
+  transform: translateY(1px);
+}
+
+.seal-btn-wax {
+  flex: 0 0 auto;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, #d45a5a, #8b1e1e 58%, #5a1010 100%);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.28);
+  position: relative;
+}
+
+.seal-btn-wax::after {
+  content: '印';
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(255, 236, 210, 0.88);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.seal-btn-label {
+  flex: 1;
+  text-align: left;
+  line-height: 1.35;
+}
+
+.ghost-btn {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.phase-tip,
+.footer-meta {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  text-align: center;
+}
