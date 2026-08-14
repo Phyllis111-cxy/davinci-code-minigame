@@ -59,19 +59,69 @@ export function Board({
       {!fill ? <div className="board-vignette" aria-hidden /> : null}
 
       <svg className="board-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="silk-thread" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#7a121c" />
+            <stop offset="35%" stopColor="#d2343a" />
+            <stop offset="55%" stopColor="#f06a68" />
+            <stop offset="78%" stopColor="#b01e28" />
+            <stop offset="100%" stopColor="#6e1018" />
+          </linearGradient>
+          <filter
+            id="silk-soft"
+            x="-20%"
+            y="-20%"
+            width="140%"
+            height="140%"
+          >
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.15" />
+          </filter>
+        </defs>
         {state.lockedLinks.map((link) => {
           const a = PIN_LAYOUT[link.from]
           const b = PIN_LAYOUT[link.to]
+          const dx = b.x - a.x
+          const dy = b.y - a.y
+          const len = Math.hypot(dx, dy) || 1
+          // Tiny perpendicular offset for the highlight filament.
+          const ox = (-dy / len) * 0.28
+          const oy = (dx / len) * 0.28
+          const key = `${link.from}-${link.to}`
           return (
-            <line
-              key={`${link.from}-${link.to}`}
-              x1={a.x}
-              y1={a.y}
-              x2={b.x}
-              y2={b.y}
-              className="board-line locked"
-              pathLength={100}
-            />
+            <g key={key} className="board-thread">
+              <line
+                className="board-line thread-shadow"
+                x1={a.x}
+                y1={a.y}
+                x2={b.x}
+                y2={b.y}
+                pathLength={100}
+              />
+              <line
+                className="board-line thread-core"
+                x1={a.x}
+                y1={a.y}
+                x2={b.x}
+                y2={b.y}
+                pathLength={100}
+              />
+              <line
+                className="board-line thread-fiber"
+                x1={a.x}
+                y1={a.y}
+                x2={b.x}
+                y2={b.y}
+                pathLength={100}
+              />
+              <line
+                className="board-line thread-shine"
+                x1={a.x + ox}
+                y1={a.y + oy}
+                x2={b.x + ox}
+                y2={b.y + oy}
+                pathLength={100}
+              />
+            </g>
           )
         })}
         {selectedPos ? (
