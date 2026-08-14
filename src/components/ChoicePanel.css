@@ -1,0 +1,186 @@
+/* Archival observation slips — parchment notes pinned above the dialogue. */
+
+.vn-stage.has-choices .vn-choices {
+  position: absolute;
+  left: 4.5%;
+  right: 4.5%;
+  bottom: 13.2rem;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.48rem;
+  pointer-events: none;
+}
+
+.vn-choices-kicker {
+  margin: 0 0 0.12rem 0.15rem;
+  color: rgba(196, 163, 90, 0.78);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  animation: choice-slip-in 0.45s ease both;
+}
+
+.vn-choice-btn {
+  pointer-events: auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.15rem 1fr;
+  align-items: stretch;
+  width: 100%;
+  min-height: 3.1rem;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(92, 68, 38, 0.55);
+  border-radius: 1px 3px 2px 1px;
+  background:
+    linear-gradient(115deg, rgba(255, 248, 230, 0.14) 0%, transparent 38%),
+    linear-gradient(180deg, #f4e6c8 0%, #e8d4a8 48%, #dfc58f 100%);
+  color: #2a2118;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transform-origin: 12% 50%;
+  animation: choice-slip-in 0.5s cubic-bezier(0.2, 0.85, 0.25, 1) both;
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    filter 0.16s ease;
+}
+
+.vn-choice-btn:nth-child(2) {
+  --tilt: -0.55deg;
+  transform: rotate(var(--tilt));
+}
+
+.vn-choice-btn:nth-child(3) {
+  --tilt: 0.45deg;
+  transform: rotate(var(--tilt));
+}
+
+.vn-choice-btn:nth-child(4) {
+  --tilt: -0.25deg;
+  transform: rotate(var(--tilt));
+}
+
+.vn-choice-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 13px,
+      rgba(90, 64, 36, 0.045) 13px,
+      rgba(90, 64, 36, 0.045) 14px
+    );
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.vn-choice-btn::after {
+  content: '';
+  position: absolute;
+  left: 2.15rem;
+  top: 12%;
+  bottom: 12%;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(120, 82, 42, 0.35),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.vn-choice-index {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, #8f2222 0%, #5e1212 100%);
+  color: #fff4e4;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.18);
+}
+
+.vn-choice-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 0.72rem 1.05rem 0.72rem 0.85rem;
+}
+
+.vn-choice-text {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  color: #2a2118;
+}
+
+.vn-choice-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0.85rem 0.85rem 0;
+  border-color: transparent #c4a35a transparent transparent;
+  opacity: 0.55;
+  filter: drop-shadow(-1px 1px 0 rgba(0, 0, 0, 0.08));
+  transition: opacity 0.16s ease;
+}
+
+.vn-choice-btn:hover,
+.vn-choice-btn:focus-visible {
+  filter: brightness(1.03);
+  transform: rotate(var(--tilt, 0deg)) translateY(-1px);
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(196, 163, 90, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42);
+  outline: none;
+}
+
+.vn-choice-btn:hover .vn-choice-corner,
+.vn-choice-btn:focus-visible .vn-choice-corner {
+  opacity: 0.95;
+}
+
+.vn-choice-btn:active {
+  filter: brightness(0.98);
+  transform: rotate(var(--tilt, 0deg)) translateY(0);
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+@keyframes choice-slip-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) rotate(calc(var(--tilt, 0deg) - 1deg));
+  }
+  to {
+    opacity: 1;
+    transform: rotate(var(--tilt, 0deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vn-choices-kicker,
+  .vn-choice-btn {
+    animation: none;
+  }
+}
