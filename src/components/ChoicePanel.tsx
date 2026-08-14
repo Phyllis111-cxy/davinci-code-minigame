@@ -1,7 +1,6 @@
 import type { GameApi } from '@/game/useGame'
 import { VnStage } from '@/components/VnStage'
 import { IMG } from '@/media/images'
-import './ChoicePanel.css'
 
 interface ChoicePanelProps {
   game: GameApi
@@ -34,25 +33,17 @@ export function ChoicePanel({ game }: ChoicePanelProps) {
       hint={<span className="vn-hint-continue">{episode.ui.choiceSceneHint}</span>}
     >
       <div className="vn-choices" role="group" aria-label="观察选项">
-        <p className="vn-choices-kicker">观察笔记 · 三选一</p>
-        {currentOpeningBeat.choices.map((choice, index) => (
+        {currentOpeningBeat.choices.map((choice) => (
           <button
             key={choice.id}
             type="button"
             className="vn-choice-btn"
-            style={{ animationDelay: `${0.08 + index * 0.07}s` }}
             onClick={(event) => {
               event.stopPropagation()
               answerOpeningChoice(choice.id)
             }}
           >
-            <span className="vn-choice-index" aria-hidden>
-              {String.fromCharCode(65 + index)}
-            </span>
-            <span className="vn-choice-body">
-              <span className="vn-choice-text">{choice.text}</span>
-            </span>
-            <span className="vn-choice-corner" aria-hidden />
+            {choice.text}
           </button>
         ))}
       </div>
