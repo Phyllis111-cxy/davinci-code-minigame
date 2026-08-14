@@ -169,13 +169,12 @@
   display: inline-block;
   margin: 0 0 0.35rem 0.15rem;
   padding: 0.28rem 0.75rem 0.32rem;
-  background: linear-gradient(180deg, #4a3826 0%, #2c2116 100%);
-  color: #f3ead7;
+  background: linear-gradient(180deg, #a42828, #6e1515);
+  color: #fff8ee;
   font-family: var(--font-display);
   font-size: 0.92rem;
   letter-spacing: 0.12em;
   clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
-  border: 1px solid rgba(196, 163, 90, 0.45);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
@@ -236,7 +235,7 @@
   letter-spacing: 0.1em;
 }
 
-/* Choice options sit above the dialogue box (visuals in ChoicePanel.css). */
+/* Choice options sit above the dialogue box. */
 .vn-choices {
   position: absolute;
   left: 5%;
@@ -246,6 +245,34 @@
   flex-direction: column;
   gap: 0.5rem;
   z-index: 4;
+}
+
+.vn-choice-btn {
+  width: 100%;
+  padding: 0.78rem 0.95rem;
+  border-radius: 4px;
+  border: 1px solid rgba(196, 163, 90, 0.45);
+  background: linear-gradient(180deg, rgba(28, 20, 14, 0.88), rgba(14, 10, 8, 0.92));
+  color: #f3ead7;
+  font: inherit;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    transform 0.12s ease;
+}
+
+.vn-choice-btn:hover {
+  border-color: rgba(196, 163, 90, 0.75);
+  background: linear-gradient(180deg, rgba(48, 34, 22, 0.95), rgba(22, 16, 12, 0.96));
+}
+
+.vn-choice-btn:active {
+  transform: scale(0.99);
 }
 
 /* Floating action strip for pin confirm. */
